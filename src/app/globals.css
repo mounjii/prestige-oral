@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/*
+  Shape system: buttons are pills, cards and photos are 16px (rounded-2xl).
+  Theme is locked to the clinic palette. One accent: champagne gold.
+  Z-index: header 30, mobile bar 40, menu and skip link 50.
+*/
+
+@theme inline {
+  --color-ivory: #faf7f2;
+  --color-cream: #f0e7dc;
+  --color-gold: #b58a4a;
+  --color-gold-deep: #96703a;
+  --color-ink: #352417;
+  --color-ink-soft: #806f60;
+  --color-paper: #ffffff;
+  --color-line: #e8ddd0;
+  --color-whatsapp: #25d366;
+  --font-sans: var(--font-arabic), var(--font-latin), ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  scroll-padding-bottom: 5.5rem;
+  color-scheme: light;
+  background: #faf7f2;
+}
+
+body {
+  margin: 0;
+  background: #faf7f2;
+  color: #352417;
+  font-family: var(--font-arabic), var(--font-latin), ui-sans-serif, sans-serif;
+  overflow-x: clip;
+}
+
+.font-latin {
+  font-family: var(--font-latin), ui-sans-serif, sans-serif;
+}
+
+img.brand-mark,
+img.brand-watermark {
+  width: auto;
+  max-width: none;
+}
+
+img.brand-mark {
+  height: 2.75rem;
+}
+
+img.brand-watermark {
+  height: 10rem;
+}
+
+@media (min-width: 640px) {
+  img.brand-watermark {
+    height: 12rem;
+  }
+}
+
+::selection {
+  background: #ede2d2;
+  color: #382719;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pressable:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
