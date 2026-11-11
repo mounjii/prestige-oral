@@ -2,7 +2,6 @@
 
 import { Languages } from "lucide-react";
 import { createContext, useContext, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
-import { langFromTag } from "@/i18n/detect";
 import { dictionary, languageOptions, type Copy, type Lang } from "@/i18n/dictionary";
 
 const LanguageContext = createContext<{
@@ -13,19 +12,10 @@ const LanguageContext = createContext<{
 
 const listeners = new Set<() => void>();
 
-function browserLang(): Lang {
-  const tags = navigator.languages?.length ? navigator.languages : [navigator.language];
-  for (const tag of tags) {
-    const lang = langFromTag(tag || "");
-    if (lang) return lang;
-  }
-  return "ar";
-}
-
 function readLang(): Lang {
   const saved = window.localStorage.getItem("prestige-lang");
   if (saved === "en" || saved === "fr" || saved === "ar") return saved;
-  return browserLang();
+  return "ar";
 }
 
 function remember(lang: Lang) {

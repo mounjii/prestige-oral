@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { JsonLd } from "@/components/json-ld";
 import { MetaPixel } from "@/components/meta-pixel";
-import { isLang, langFromAccept } from "@/i18n/detect";
+import { isLang } from "@/i18n/detect";
 import { dictionary } from "@/i18n/dictionary";
 import { LanguageProvider } from "@/i18n/language";
 import { BookingProvider } from "@/lib/booking";
@@ -82,7 +82,7 @@ export const instant = false;
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const saved = (await cookies()).get("prestige-lang")?.value;
-  const lang = isLang(saved) ? saved : langFromAccept((await headers()).get("accept-language"));
+  const lang = isLang(saved) ? saved : "ar";
   return (
     <html lang={lang} dir={dictionary[lang].dir} suppressHydrationWarning className={`${arabic.variable} ${latin.variable} antialiased`}>
       <head>
