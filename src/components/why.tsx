@@ -1,10 +1,10 @@
 "use client";
 
-import { Gem, HeartHandshake, Stethoscope, UserRound } from "lucide-react";
+import { Gem, HeartHandshake, UserRound } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { useI18n } from "@/i18n/language";
 
-const icons = [Gem, Stethoscope, UserRound, HeartHandshake];
+const icons = [Gem, UserRound, HeartHandshake];
 
 export function Why() {
   const { t } = useI18n();

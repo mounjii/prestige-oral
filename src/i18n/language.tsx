@@ -2,6 +2,7 @@
 
 import { Languages } from "lucide-react";
 import { createContext, useContext, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
+import { langFromTag } from "@/i18n/detect";
 import { dictionary, languageOptions, type Copy, type Lang } from "@/i18n/dictionary";
 
 const LanguageContext = createContext<{
@@ -12,10 +13,24 @@ const LanguageContext = createContext<{
 
 const listeners = new Set<() => void>();
 
+function browserLang(): Lang {
+  const tags = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const tag of tags) {
+    const lang = langFromTag(tag || "");
+    if (lang) return lang;
+  }
+  return "ar";
+}
+
 function readLang(): Lang {
   const saved = window.localStorage.getItem("prestige-lang");
   if (saved === "en" || saved === "fr" || saved === "ar") return saved;
-  return "ar";
+  return browserLang();
+}
+
+function remember(lang: Lang) {
+  window.localStorage.setItem("prestige-lang", lang);
+  document.cookie = `prestige-lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax`;
 }
 
 function subscribe(listener: () => void) {
@@ -23,8 +38,8 @@ function subscribe(listener: () => void) {
   return () => listeners.delete(listener);
 }
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const lang = useSyncExternalStore(subscribe, readLang, () => "ar" as Lang);
+export function LanguageProvider({ initialLang, children }: { initialLang: Lang; children: React.ReactNode }) {
+  const lang = useSyncExternalStore(subscribe, readLang, () => initialLang);
 
   useEffect(() => {
     const copy = dictionary[lang];
@@ -34,7 +49,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [lang]);
 
   const setLang = (next: Lang) => {
-    window.localStorage.setItem("prestige-lang", next);
+    remember(next);
     listeners.forEach((listener) => listener());
   };
 

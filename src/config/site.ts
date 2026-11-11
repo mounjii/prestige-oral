@@ -35,7 +35,7 @@ export const site = {
       teeth: "16 سناً",
       price: "2,000",
       amount: "2000",
-      image: "/images/smile-sixteen.jpg",
+      image: "/images/result-side-a.jpg",
       alt: "صورة ابتسامة لإطلالة عرض 16 سناً",
     },
     {
@@ -43,7 +43,7 @@ export const site = {
       teeth: "20 سناً",
       price: "2,300",
       amount: "2300",
-      image: "/images/smile-twenty.jpg",
+      image: "/images/result-side-b.jpg",
       alt: "صورة ابتسامة لإطلالة عرض 20 سناً",
     },
   ] satisfies Offer[],

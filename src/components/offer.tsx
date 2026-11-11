@@ -31,8 +31,8 @@ export function Offer() {
             <article
               className="overflow-hidden rounded-2xl border border-line bg-paper shadow-[0_18px_40px_-30px_rgba(53,36,23,0.55)] motion-safe:transition motion-safe:hover:-translate-y-0.5"
             >
-              <RevealImage className="aspect-[16/10] bg-cream">
-                <Image src={offer.image} alt={t.offers[offer.id].teeth} fill sizes="(max-width: 768px) 100vw, 540px" className="object-cover" />
+              <RevealImage className="aspect-square bg-ivory">
+                <Image src={offer.image} alt={t.offers[offer.id].teeth} fill sizes="(max-width: 768px) 100vw, 540px" className="object-contain" />
               </RevealImage>
               <div className="p-5">
                 <h3 className="text-lg font-medium text-ink">{t.offers[offer.id].teeth}</h3>

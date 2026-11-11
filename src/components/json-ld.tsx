@@ -6,7 +6,7 @@ export function JsonLd() {
     "@type": "Dentist",
     name: site.name,
     url: site.url,
-    image: `${site.url}/images/hero-smile.jpg`,
+    image: `${site.url}/images/hero-bg.jpg`,
     ...(site.phoneTel ? { telephone: site.phoneTel } : {}),
     address: {
       "@type": "PostalAddress",

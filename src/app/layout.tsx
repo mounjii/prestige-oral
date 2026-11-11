@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { cookies, headers } from "next/headers";
 import { JsonLd } from "@/components/json-ld";
 import { MetaPixel } from "@/components/meta-pixel";
+import { isLang, langFromAccept } from "@/i18n/detect";
+import { dictionary } from "@/i18n/dictionary";
 import { LanguageProvider } from "@/i18n/language";
 import { BookingProvider } from "@/lib/booking";
 import "./globals.css";
@@ -75,14 +78,18 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const instant = false;
+
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const saved = (await cookies()).get("prestige-lang")?.value;
+  const lang = isLang(saved) ? saved : langFromAccept((await headers()).get("accept-language"));
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning className={`${arabic.variable} ${latin.variable} antialiased`}>
+    <html lang={lang} dir={dictionary[lang].dir} suppressHydrationWarning className={`${arabic.variable} ${latin.variable} antialiased`}>
       <head>
         <meta name="description" lang="fr" content={frenchDescription} />
       </head>
       <body suppressHydrationWarning className="min-h-dvh bg-ivory text-ink">
-        <LanguageProvider>
+        <LanguageProvider initialLang={lang}>
           <BookingProvider>{children}</BookingProvider>
         </LanguageProvider>
         <JsonLd />

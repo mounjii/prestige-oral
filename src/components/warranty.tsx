@@ -15,12 +15,6 @@ export function Warranty() {
             {t.warrantyTitle}
           </h2>
           <p className="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">{t.warrantyBody}</p>
-          <details className="mt-4">
-            <summary className="cursor-pointer text-sm font-medium text-ink underline decoration-gold underline-offset-4">
-              {t.warrantySummary}
-            </summary>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft">{t.warrantyDetails}</p>
-          </details>
         </div>
       </Reveal>
     </section>

@@ -1,10 +1,10 @@
 "use client";
 
-import { CalendarDays, Palette, ShieldCheck, Users } from "lucide-react";
+import { CalendarDays, Palette, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { useI18n } from "@/i18n/language";
 
-const icons = [ShieldCheck, Palette, Users, CalendarDays];
+const icons = [ShieldCheck, Palette, CalendarDays];
 
 export function TrustStrip() {
   const { t } = useI18n();
@@ -12,7 +12,7 @@ export function TrustStrip() {
 
   return (
     <section aria-label={t.trustLabel} className="px-4 py-8">
-      <ul className="mx-auto grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mx-auto grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => {
           const Icon = item.icon;
           const content = (

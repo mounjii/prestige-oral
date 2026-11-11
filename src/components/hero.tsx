@@ -20,12 +20,19 @@ export function Hero() {
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       >
         <Image
-          src="/images/hero-smile.jpg"
+          src="/images/hero-bg-mobile.jpg"
           alt={t.heroAlt}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_18%]"
+          className="object-cover object-[center_18%] md:hidden"
+        />
+        <Image
+          src="/images/hero-bg.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="hidden object-cover object-center md:block"
         />
       </motion.div>
       <div

@@ -39,10 +39,14 @@ export type Copy = {
   veneerMore: string;
   veneerMoreBody: string;
   veneerAlt: string;
+  veneerWide: string;
+  veneerPortrait: string;
   whyTitle: string;
   features: { title: string; body: string }[];
   resultsTitle: string;
   resultsBody: string;
+  resultsBefore: string;
+  resultsAfter: string;
   formTitle: string;
   formBody: string;
   fullName: string;
@@ -104,7 +108,6 @@ const ar: Copy = {
   trust: [
     { title: "ضمان لمدة عامين", body: "حسب شروط العيادة، وليس تغطية تلقائية لكل علاج." },
     { title: "اختيار درجة البياض", body: "تختار درجة مبدئية، والطبيب يؤكد المناسبة." },
-    { title: "فريق طبي متخصص", body: "استشارة مع طبيب قبل أي علاج تجميلي." },
     { title: "مواعيد مرنة", body: "نرتب الموعد معك عبر واتساب أو الهاتف." },
   ],
   offerTitle: "عرض خاص لفترة محدودة",
@@ -132,15 +135,18 @@ const ar: Copy = {
   veneerMore: "تعرف على المزيد",
   veneerMoreBody: "يختلف عدد الأسنان والدرجة المناسبة من شخص لآخر. الخطوة الأولى استشارة في العيادة، لا حجز علاج مؤكد من الصفحة.",
   veneerAlt: "قشرة تجميلية شفافة",
+  veneerWide: "تطبيق الفينير المركب",
+  veneerPortrait: "ابتسامة بعد الفينير المركب",
   whyTitle: "لماذا تختار Prestige Oral؟",
   features: [
     { title: "مواد عالية الجودة", body: "يختار الطبيب المادة المناسبة لحالتك." },
-    { title: "فريق طبي متخصص", body: "تشخيص واضح قبل البدء بأي إجراء." },
     { title: "متابعة شخصية", body: "نتواصل معك من الاستشارة إلى ما بعدها." },
     { title: "الاهتمام براحة المريض", body: "نشرح الخطوات ونراعي راحتك أثناء الزيارة." },
   ],
   resultsTitle: "قبل وبعد",
-  resultsBody: "ستُعرض هنا صور حقيقية من العيادة بعد موافقة المرضى. لا ننشر صوراً توضيحية على أنها نتائج علاج.",
+  resultsBody: "نتائج حقيقية من مرضى العيادة. كل حالة تختلف، والنتيجة تُحدد بعد الاستشارة.",
+  resultsBefore: "قبل",
+  resultsAfter: "بعد",
   formTitle: "احجز موعدك الآن",
   formBody: "املأ المعلومات التالية وسنتواصل معك عبر واتساب لتأكيد موعدك.",
   fullName: "الاسم الكامل",
@@ -208,7 +214,6 @@ const fr: Copy = {
   trust: [
     { title: "Garantie de deux ans", body: "Selon les conditions de la clinique, pas une couverture automatique." },
     { title: "Choix de la teinte", body: "Vous indiquez une préférence, le dentiste confirme." },
-    { title: "Équipe spécialisée", body: "Une consultation précède tout soin esthétique." },
     { title: "Horaires souples", body: "Le rendez-vous se fixe par WhatsApp ou par téléphone." },
   ],
   offerTitle: "Offre spéciale pour une durée limitée",
@@ -237,16 +242,18 @@ const fr: Copy = {
   veneerMoreBody:
     "Le nombre de dents et la teinte varient selon chaque personne. La première étape est une consultation, pas un soin confirmé depuis cette page.",
   veneerAlt: "Facette cosmétique translucide",
+  veneerWide: "Pose d'une facette composite",
+  veneerPortrait: "Sourire après les facettes",
   whyTitle: "Pourquoi choisir Prestige Oral ?",
   features: [
     { title: "Matériaux de qualité", body: "Le dentiste choisit le matériau adapté à votre cas." },
-    { title: "Équipe spécialisée", body: "Un diagnostic clair avant tout soin." },
     { title: "Suivi personnel", body: "Nous restons en contact de la consultation jusqu'après le soin." },
     { title: "Confort du patient", body: "Nous expliquons les étapes et veillons à votre confort." },
   ],
   resultsTitle: "Avant et après",
-  resultsBody:
-    "Les photos réelles de la clinique seront ajoutées ici après accord des patients. Nous ne publions pas d'images d'illustration comme des résultats.",
+  resultsBody: "Résultats réels de patients de la clinique. Chaque cas est différent et se décide après consultation.",
+  resultsBefore: "Avant",
+  resultsAfter: "Après",
   formTitle: "Réservez votre rendez-vous",
   formBody: "Remplissez ces informations. Nous vous contactons sur WhatsApp pour confirmer.",
   fullName: "Nom complet",
@@ -314,7 +321,6 @@ const en: Copy = {
   trust: [
     { title: "Two-year warranty", body: "Under the clinic's terms, not automatic cover for every treatment." },
     { title: "Choose a shade", body: "You pick a starting shade. The dentist confirms it." },
-    { title: "Specialist team", body: "A dentist reviews your case before any cosmetic treatment." },
     { title: "Flexible appointments", body: "We arrange the visit by WhatsApp or phone." },
   ],
   offerTitle: "Limited-time special offer",
@@ -343,16 +349,18 @@ const en: Copy = {
   veneerMoreBody:
     "The number of teeth and the right shade differ from person to person. The first step is a consultation, not a confirmed treatment from this page.",
   veneerAlt: "A translucent cosmetic shell",
+  veneerWide: "Applying a composite veneer",
+  veneerPortrait: "A smile after composite veneers",
   whyTitle: "Why choose Prestige Oral?",
   features: [
     { title: "Quality materials", body: "The dentist chooses the material that fits your case." },
-    { title: "Specialist team", body: "A clear diagnosis before any procedure." },
     { title: "Personal follow-up", body: "We stay in touch from the consultation onward." },
     { title: "Patient comfort", body: "We explain each step and look after your comfort." },
   ],
   resultsTitle: "Before and after",
-  resultsBody:
-    "Real clinic photos will appear here after patients agree. We do not publish illustrations as treatment results.",
+  resultsBody: "Real results from clinic patients. Every case is different and is decided after a consultation.",
+  resultsBefore: "Before",
+  resultsAfter: "After",
   formTitle: "Book your appointment",
   formBody: "Fill in these details. We will contact you on WhatsApp to confirm.",
   fullName: "Full name",
