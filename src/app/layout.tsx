@@ -81,6 +81,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+export const instant = false;
+
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const saved = (await cookies()).get("prestige-lang")?.value;
   const lang = isLang(saved) ? saved : "ar";
