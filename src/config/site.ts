@@ -53,8 +53,8 @@ export const site = {
     { id: "BL2", color: "#F8F8F8" },
     { id: "BL3", color: "#FFFFFF" },
   ] satisfies { id: ShadeId; color: string }[],
-  disclaimer: "يتم تحديد العلاج المناسب وعدد الأسنان بعد استشارة الطبيب وتقييم الحالة.",
-  shadeDisclaimer: "الدرجة النهائية تعتمد على تقييم الطبيب وتوصيته، واختيارك هنا ليس ضماناً للنتيجة.",
+  disclaimer: "يتم تحديد العلاج المناسب وعدد الأسنان بعد استشارة الخبير وتقييم الحالة.",
+  shadeDisclaimer: "الدرجة النهائية تعتمد على تقييم الخبير وتوصيته، واختيارك هنا ليس ضماناً للنتيجة.",
 } as const;
 
 export const navItems = [
