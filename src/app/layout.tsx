@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { cookies } from "next/headers";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { JsonLd } from "@/components/json-ld";
 import { MetaPixel } from "@/components/meta-pixel";
 import { isLang } from "@/i18n/detect";
@@ -30,7 +31,9 @@ const frenchDescription =
   "Prestige Oral à Témara. Offre sur les facettes composites : 16 dents à 2 000 MAD, 20 dents à 2 300 MAD. Réservez votre consultation sur WhatsApp.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  ),
   title,
   description,
   keywords: [
@@ -78,13 +81,16 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export const instant = false;
-
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const saved = (await cookies()).get("prestige-lang")?.value;
   const lang = isLang(saved) ? saved : "ar";
   return (
-    <html lang={lang} dir={dictionary[lang].dir} suppressHydrationWarning className={`${arabic.variable} ${latin.variable} antialiased`}>
+    <html
+      lang={lang}
+      dir={dictionary[lang].dir}
+      suppressHydrationWarning
+      className={`${arabic.variable} ${latin.variable} antialiased`}
+    >
       <head>
         <meta name="description" lang="fr" content={frenchDescription} />
       </head>
@@ -94,6 +100,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         </LanguageProvider>
         <JsonLd />
         <MetaPixel />
+        <GoogleAnalytics />
       </body>
     </html>
   );
